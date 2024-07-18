@@ -1,0 +1,35 @@
+{% extends 'app_page.html' %}
+
+{% block content_2 %}
+  <h1 class="text-center">Quan Services' Builders</h1>
+  <div class="card p-3 m-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- Need Sort per column -->
+          <th scope="col">Builder Name</th>
+          <th scope="col">Fixture Brand</th>
+          <th scope="col">Markup</th>
+          <th scope="col">Base Trap Price</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- {{builders}} -->
+        {% for builder in builders %}
+          <tr>
+            <td><a href="{% url 'builder profile' builder.id %}">{{ builder.name }}</a></td>
+            <td>{{ builder.fixt_brand }}</td>
+            <td>{{ builder.markup }}</td>
+            <td>{{ builder.base_trap_price}}</td>
+            <td><a href="{% url 'edit builder' builder.id %}">Edit Base Options</a></td>
+            <td><a href="{% url 'edit builder' builder.id %}">View Plans</a></td>
+            <td><a href="{% url 'edit builder' builder.id %}">View Options</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content_2 %}

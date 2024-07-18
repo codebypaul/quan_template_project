@@ -1,0 +1,147 @@
+{% extends 'app_page.html' %}
+
+{% block content_2 %}
+<h1>{{builder.name}}</h1>
+<div class="row">
+
+  <div class="col-6">
+
+    <div class="card">
+      <div class="card-header d-flex flex-row justify-content-between">
+          <h2>Plans</h2>
+          <div>
+            <a href="{% url 'add new plan' %}" class="btn btn-primary">New Plan</a>
+          </div>
+      </div>
+      <div class="card-body">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Plan Name</th>
+                  <th scope="col"></th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for plan in plans %}
+                <tr>
+                  <th scope="row"><a href="{% url 'view plan' plan.id %}">{{plan.plan_name}}</a></th>
+                  <td><a href="">Options</a></td>
+
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+      </div>
+      <div class="card-footer">
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+
+              {% if plans.has_previous %}
+              <li class="page-item"><a class="page-link" href="?l_page={{planss.previous_page_number}}">Previous</a></li>
+              {% else %}
+              <li class="page-item disabled"><a class="page-link">Previous</a></li>
+              {% endif %}
+
+              {% for i in plans.paginator.page_range %}
+                  {% if i == plans.number %}
+                  <li class="page-item"><a class="page-link active" href="?plans_page={{i}}">{{i}}</a></li>
+                  {% else %}
+                  <li class="page-item"><a class="page-link" href="?plans_page={{i}}">{{i}}</a></li>
+                  {% endif %}
+              {% endfor %}
+
+              {% if plans.has_next %}
+              <li class="page-item"><a class="page-link" href="?plan_page={{plans.next_page_number}}">Next</a></li>
+              {% else %}
+              <li class="page-item"><a class="page-link disabled" href="">Next</a></li>
+              {% endif %}
+
+              
+          </ul>
+      </nav>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header d-flex flex-row justify-content-between">
+          <h2>Base Options</h2>
+          <div>
+            <a href="{% url 'edit builder' builder.id %}" class="btn btn-primary">Update Base Options</a>
+          </div>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">Fixture Brand</th>
+              <td>{{builder.fixt_brand}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Markup</th>
+              <td>{{builder.markup}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Trap Price</th>
+              <td colspan="2">{{builder.base_trap_price}}</td>
+            </tr>
+            <tr>
+              <th scope="row">House Color</th>
+              <td colspan="2">{{builder.base_house_color}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Kitchen Faucet</th>
+              <td colspan="2">{{builder.kitchen_faucet}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Garbage Disposal</th>
+              <td colspan="2">{{builder.garbage_disposal}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Closet</th>
+              <td colspan="2">{{builder.closet}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Closet Seat</th>
+              <td colspan="2">{{builder.closet_seat}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Pedestal Lavatory</th>
+              <td colspan="2">{{builder.pedestal_lav}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Primary Bath Lavatory Faucet</th>
+              <td colspan="2">{{builder.base_pri_lav_faucet}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Secondary Bath Lavatory Faucet</th>
+              <td colspan="2">{{builder.base_pri_lav_faucet}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Base Shower Trim</th>
+              <td colspan="2">{{builder.base_shower_trim}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Base Tub and Shower Trim</th>
+              <td colspan="2">{{builder.base_ts_trim}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Water Heater</th>
+              <td colspan="2">{{builder.water_heater}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Sewer | Water Line Length</th>
+              <td colspan="2">{{builder.sewer_line}} | {{builder.water_line}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock content_2 %}

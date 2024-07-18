@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <h1 class="text-center mb-3">
+        {% if builder %}
+            {{ builder.name }}
+        {% else %}
+            Add a New Builder
+        {% endif %}
+    </h1>
+
+    <div class="card p-3">
+        <form action="">
+                {% if builder == '' %}
+                <div class="W-75 mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Builder Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                {% endif %}
+            <div class="row">
+                <div class="col-6">
+                    <!-- fixture brand -->
+                    <label for="exampleDataList" class="form-label">Fixture Brand</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.fixt_brand }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- Fixture Color -->
+                    <label for="exampleDataList" class="form-label">Fixture Color</label>
+                    <select class="form-select" aria-label="Default select example">
+                        {% if builder == '' %}
+                            <option selected>Open this select menu</option>
+                        {% else %}
+                            <option selected>{{ builder.base_house_color }}</option>
+                        {% endif %}
+                        <option value="1">Delta</option>
+                        <option value="2">Moen</option>
+                        <option value="3">Three</option>
+                      </select>
+
+                    <!-- Kitchen Faucet -->
+                    <label for="exampleDataList" class="form-label">Kitchen Faucet</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.kitchen_faucet }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- garbage disposal -->
+                    <label for="exampleDataList" class="form-label">Garbage Disposal</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.garbage_disposal }}"placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- closet -->
+                    <label for="exampleDataList" class="form-label">Closet</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.closet }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- closet seat -->
+                    <label for="exampleDataList" class="form-label">Closet Seat</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.closet_seat }}"placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+                </div>
+                <div class="col-6">
+                    <!-- pedestal lav -->
+                    <label for="exampleDataList" class="form-label">Pedestal Lavatory</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.pedestal_lav }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- primary bath lav faucet -->
+                    <label for="exampleDataList" class="form-label">Primary Lavatory Faucet</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.base_pri_lav_faucet }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- secondary lav faucet -->
+                    <label for="exampleDataList" class="form-label">Secondary Lavatory Faucet</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.base_sec_lav_faucet }}"placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- base shower trim -->
+                    <label for="exampleDataList" class="form-label">Base Shower Trim</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.base_shower_trim }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+                    
+                    <!-- base tub shower trim -->
+                    <label for="exampleDataList" class="form-label">Base Tub / Shower Trim</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.base_ts_trim }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+
+                    <!-- water heater -->
+                    <label for="exampleDataList" class="form-label">Water Heater</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" value="{{ builder.water_heater }}" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="Moen">
+                        <option value="Delta">
+                        <option value="Kohler">
+                        <option value="Sterling">
+                        <option value="Gerber">
+                    </datalist>
+                </div>
+            </div>
+            
+
+            
+
+            
+
+            
+
+            
+
+            <!-- sewer line -->
+            <label for="customRange3" class="form-label">Sewer Line Length</label>
+            <input type="range" class="form-range" min="20" max="70" step="5" value="{{ builder.sewer_line }}" id="customRange3">
+
+            <!-- water line -->
+            <label for="customRange3" class="form-label">Example range</label>
+            <input type="range" class="form-range" min="20" max="70" step="5" value="{{ builder.water_line }}"  id="customRange3">
+        </form>
+    </div>
+</div>
+{% endblock content %}

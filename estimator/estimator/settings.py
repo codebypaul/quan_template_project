@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'rest_framework',
     
     'app.apps.AppConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -101,22 +101,22 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
 
     },
-    'mongo': {
-        'ENGINE': 'djongo',
+    # 'mongo': {
+    #     'ENGINE': 'djongo',
 
-        'NAME': 'your_mongo_db_name',
+    #     'NAME': 'your_mongo_db_name',
 
-        'ENFORCE_SCHEMA': False,  # Optional: Set to True if you want to enforce Django model schema
+    #     'ENFORCE_SCHEMA': False,  # Optional: Set to True if you want to enforce Django model schema
 
-        'CLIENT': {
-            'host': 'localhost',
-            'port': 27017,
-            'username': 'your_mongo_username',
-            'password': 'your_mongo_password',
-            'authSource': 'admin',  # Optional: Specify if your user is in a different auth database
-            'authMechanism': 'SCRAM-SHA-1',  # Optional: Specify the authentication mechanism
-        }
-    }
+    #     'CLIENT': {
+    #         'host': 'localhost',
+    #         'port': 27017,
+    #         'username': 'your_mongo_username',
+    #         'password': 'your_mongo_password',
+    #         'authSource': 'admin',  # Optional: Specify if your user is in a different auth database
+    #         'authMechanism': 'SCRAM-SHA-1',  # Optional: Specify the authentication mechanism
+    #     }
+    # }
 }
 
 
